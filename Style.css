@@ -1,0 +1,61 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.navbar{
+    display: inline-block;
+    background-color: darkkhaki;
+    height: 70px;
+    width: 100%;
+}
+nav ul{
+    list-style: none;
+    display: inline-block;
+    padding-left: 500px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    display: inline;
+    color: aliceblue;
+    text-transform:uppercase;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+}
+ul li a:hover{
+    color: olive;
+    background-color: white;
+    transition: .5s;
+    border: 1px solid olive;
+    border-radius: 20px;
+}
+.home a{
+    background-color: white;
+    color: olive;
+    margin-right: 50px;
+    border: 1px solid olive;
+    border-radius: 20px;
+}
+.logo{
+    margin: 17px;
+    font-size: 30px;
+    font-weight:bolder;
+    color: white;
+    display: inline-block;
+}
+.logo span{
+    color: olive;
+}
+.Obox
+{  
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    padding: 50px;
+    background-color:khaki;
+    justify-content: center;
+}

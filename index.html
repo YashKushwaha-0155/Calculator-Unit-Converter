@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./Style.css">
+    <style>
+        .CalBody{  
+            border-radius: 20px;
+            display: flex;
+            padding: 25px;
+            height: 500px;
+            width: 400px;
+            flex-wrap: wrap;
+            background-color: darkkhaki;
+            justify-content: center;
+        }
+        input{
+            width:350px;
+            height: 50px;
+            display: block;
+            padding-left: 20px;
+            font-size: larger;
+            font-weight: bolder;
+            font-family: monospace;
+        }
+        table{
+            width: 350px;
+            height: 400px;
+            background-color: darkkhaki;
+            table-layout: fixed;
+        }
+        td{
+            padding: 0px;
+            margin: 0px;
+        }
+        button{
+            height: 60%;
+            width: 80%;
+            border-radius: 10px;
+            background-color: #DAF7A6;
+            font-weight:bolder;
+            border: olive;
+        }
+        .opr{
+            background-color: darkorange;
+            color: white;
+            font-weight:bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .sopr{
+            background-color: olive;
+            color: white;
+            font-weight:bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="containor">
+        <nav class="navbar">
+            <div class="logo">Calculator<span>X</span></div>
+            <ul>
+                <li class="home"><a href="index.html">Home</a></li>
+                <li><a href="UnitConvertor.html">Unit Convertor</a></li>
+                <li><a href="">Tempeture Convertor</a></li>
+                <li><a href="">Feedback</a></li>
+                <li><a href="">Contect Us</a></li>
+            </ul>
+        </nav>
+        <div class="Obox">
+            <div class="CalBody">
+                <div class="screen"><input type="text" id="Display"></div>
+                <div class="Keys">
+                    <table>
+                        <tr>
+                            <td><button onclick="clearDisplay()" class="sopr">A/C</button></td>
+                            <td><button onclick="toggleSign()" class="sopr">+/-</button></td>
+                            <td><button onclick="appendToScreen('%')" class="sopr">%</button></td>
+                            <td><button onclick="appendToScreen('/')" class="opr">/</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="appendToScreen('9')">9</button></td>
+                            <td><button onclick="appendToScreen('8')">8</button></td>
+                            <td><button onclick="appendToScreen('7')">7</button></td>
+                            <td><button onclick="appendToScreen('*')" class="opr">X</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="appendToScreen('6')">6</button></td>
+                            <td><button onclick="appendToScreen('5')">5</button></td>
+                            <td><button onclick="appendToScreen('4')">4</button></td>
+                            <td><button onclick="appendToScreen('-')" class="opr">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="appendToScreen('3')">3</button></td>
+                            <td><button onclick="appendToScreen('2')">2</button></td>
+                            <td><button onclick="appendToScreen('1')">1</button></td>
+                            <td><button onclick="appendToScreen('+')" class="opr">+</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button onclick="appendToScreen('0')">0</button></td>
+                            <td><button onclick="appendToScreen('.')" >.</button></td>
+                            <td><button onclick="calculate()" class="opr">=</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function appendToScreen(value) {
+      document.getElementById('Display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('Display').value = '';
+    }
+
+    function calculate() {
+      try {
+        document.getElementById('Display').value = eval(document.getElementById('Display').value);
+      } catch (error) {
+        document.getElementById('Display').value = 'Error';
+      }
+    }
+
+    function toggleSign() {
+    const screen = document.getElementById('Display');
+    const currentValue = parseFloat(screen.value);
+
+    if (!isNaN(currentValue)) {
+            screen.value = currentValue * -1;
+        }
+    }
+    </script>
+</body>
+</html>
